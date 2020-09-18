@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ToDO Na Vespera</string>
+    <string name="Titulo">Título</string>
+    <string name="Descricao">Descrição</string>
+    <string name="Data">Data</string>
+    <string name="Local">Local</string>
+    <string name="Realizado">Realizado</string>
+    <string name="Prioridade">Prioridade</string>
+    <string name="Alertar">Alertar</string>
+    <string name="Sim">Sim</string>
+    <string name="Nao">Não</string>
+    <string name="Latitude">Latitude</string>
+    <string name="Longitude">Longitude</string>
+    <string name="AnexarFoto">Anexar Foto</string>
+    <string name="Salvar">Salvar</string>
+    <string name="Cancelar">Cancelar</string>
 </resources>
