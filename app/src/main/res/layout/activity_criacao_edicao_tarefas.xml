@@ -8,13 +8,14 @@
     tools:context=".CriacaoEdicaoTarefasActivity">
 
     <ScrollView
+        android:id="@+id/svTela"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:padding="16dp"
             android:orientation="vertical">
 
             <TextView
@@ -168,23 +169,35 @@
             <Button
                 android:id="@+id/btAnexarFoto"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_camera"
+                android:drawableLeft="@drawable/ic_camera"
+                android:drawableTint="@color/colorAccent"
                 android:text="@string/AnexarFoto" />
 
             <Button
                 android:id="@+id/btSalvar"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="48dp"
+                android:drawableLeft="@drawable/ic_check"
                 android:text="@string/Salvar" />
 
             <Button
                 android:id="@+id/btCancelar"
-                android:layout_width="match_parent"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Cancelar" />
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_cancel"
+                android:drawableTint="@color/Vermelho"
+                android:text="@string/Cancelar"
+                android:textColor="@color/Vermelho" />
 
         </LinearLayout>
     </ScrollView>

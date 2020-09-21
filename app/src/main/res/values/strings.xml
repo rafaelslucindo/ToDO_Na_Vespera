@@ -14,4 +14,8 @@
     <string name="AnexarFoto">Anexar Foto</string>
     <string name="Salvar">Salvar</string>
     <string name="Cancelar">Cancelar</string>
+    <string name="MensagemInformarAlertar">Necessário informar Alertar - Sim ou Não</string>
+    <string name="Confirmacao">Confirmação</string>
+    <string name="MensagemConfirmacao">Deseja realmente salvar a tarefa?</string>
+    <string name="TarefaSalvaSucesso">Tarefa salva com sucesso.</string>
 </resources>
