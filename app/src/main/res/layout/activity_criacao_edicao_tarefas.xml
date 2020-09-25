@@ -89,9 +89,11 @@
                 android:text="@string/Prioridade" />
 
             <Spinner
+
                 android:id="@+id/spPrioridade"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:entries="@array/ListaPrioridades" />
 
             <TextView
                 android:id="@+id/tvAlertar"

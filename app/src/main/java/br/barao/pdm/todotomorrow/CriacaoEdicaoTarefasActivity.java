@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -47,6 +48,7 @@ public class CriacaoEdicaoTarefasActivity extends AppCompatActivity
         criaControladores();
         inicializaComponentes();
         inicializaEventos();
+//        carregaValoresCampos();
     }
 
     private void criaControladores()
@@ -85,6 +87,15 @@ public class CriacaoEdicaoTarefasActivity extends AppCompatActivity
         });
     }
 
+    // Preenchimento do spinner via programação
+    //Newton identificou uma maneira mais fácil de fazer via xml quando as listas são fixas
+//    private void carregaValoresCampos()
+//    {
+//        ArrayAdapter adapter = ArrayAdapter.createFromResource(context, R.array.ListaPrioridades, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spPrioridade.setAdapter(adapter);
+//    }
+
     private void salvaNovaTarefa()
     {
         if (!validaTela())
@@ -95,7 +106,7 @@ public class CriacaoEdicaoTarefasActivity extends AppCompatActivity
         final String data = etData.getText().toString();
         final String local = etLocal.getText().toString();
         final Boolean status_realizado = ckRealizado.isChecked();
-        final String prioridade = null;
+        final String prioridade = spPrioridade.getSelectedItemPosition() > 0 ? spPrioridade.getSelectedItem().toString() : null;
         final Boolean alertar = rbAlertarSim.isChecked();
         //Boolean alertar = rgAlertar.getCheckedRadioButtonId() == rbAlertarSim.getId();
 //        switch (rgAlertar.getCheckedRadioButtonId())
@@ -125,9 +136,6 @@ public class CriacaoEdicaoTarefasActivity extends AppCompatActivity
                     }
                 }
                 , null);
-
-
-
     }
 
     private boolean validaTela()
@@ -150,7 +158,7 @@ public class CriacaoEdicaoTarefasActivity extends AppCompatActivity
         etLatitude.setText("");
         etLongitude.setText("");
         ckRealizado.setChecked(false);
-        //spPrioridade;
+        spPrioridade.setSelection(0);
         rgAlertar.clearCheck();
         //Traz o foco para o campo
         etTitulo.requestFocus();

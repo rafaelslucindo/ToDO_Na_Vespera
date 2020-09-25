@@ -18,4 +18,11 @@
     <string name="Confirmacao">Confirmação</string>
     <string name="MensagemConfirmacao">Deseja realmente salvar a tarefa?</string>
     <string name="TarefaSalvaSucesso">Tarefa salva com sucesso.</string>
+
+    <string-array name="ListaPrioridades">
+        <item>Selecione a Prioridade</item>
+        <item>Baixa</item>
+        <item>Normal</item>
+        <item>Alta</item>
+    </string-array>
 </resources>
