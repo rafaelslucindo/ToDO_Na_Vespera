@@ -7,11 +7,10 @@ import br.barao.pdm.todotomorrow.dominio.Tarefa;
 
 public class TarefaControlador
 {
-    private List<Tarefa> listaTarefas;
+    private static final List<Tarefa> listaTarefas = new ArrayList<>();
 
     public TarefaControlador()
     {
-        listaTarefas = new ArrayList<>();
     }
 
     public boolean adicionaTarefa(String titulo, String descricao, String data, String local, Boolean status_realizado,
@@ -29,5 +28,15 @@ public class TarefaControlador
         novaTarefa.setLongitude_local(longite);
         listaTarefas.add(novaTarefa);
         return true;
+    }
+
+    public static List<Tarefa> getListaTarefas()
+    {
+        return listaTarefas;
+    }
+
+    public static void removeItemLista(Tarefa tarefaRemocao)
+    {
+        listaTarefas.remove(tarefaRemocao);
     }
 }
