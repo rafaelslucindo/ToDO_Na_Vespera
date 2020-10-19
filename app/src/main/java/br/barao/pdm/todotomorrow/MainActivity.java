@@ -22,12 +22,14 @@ public class MainActivity extends AppCompatActivity
     private Context context = MainActivity.this;
     private FloatingActionButton btAdicionar;
     private RecyclerView rvLista;
+    private TarefaControlador tarefaControlador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        inicializaControladores();
         inicializaComponentes();
         inicializaEventos();
     }
@@ -37,6 +39,11 @@ public class MainActivity extends AppCompatActivity
     {
         super.onResume();
         rvLista.getAdapter().notifyDataSetChanged();
+    }
+
+    private void inicializaControladores()
+    {
+        tarefaControlador = new TarefaControlador(context);
     }
 
     private void inicializaComponentes()
@@ -98,8 +105,8 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public boolean onLongClick(View v)
                 {
-                    rvLista.getAdapter().notifyItemRemoved(TarefaControlador.getListaTarefas().indexOf((Tarefa) v.getTag()));
-                    TarefaControlador.removeItemLista((Tarefa) v.getTag());
+                    rvLista.getAdapter().notifyItemRemoved(tarefaControlador.getListaTarefas().indexOf((Tarefa) v.getTag()));
+                    tarefaControlador.removeItemLista((Tarefa) v.getTag());
                     return true;
                 }
             });
@@ -115,7 +122,7 @@ public class MainActivity extends AppCompatActivity
         //Devemos retornar o número de registros que serão exibidos na lista
         public int getItemCount()
         {
-            return TarefaControlador.getListaTarefas().size();
+            return tarefaControlador.contaRegistros();
         }
 
         @NonNull
@@ -132,7 +139,7 @@ public class MainActivity extends AppCompatActivity
         // Atribuir aos componentes visuais do item/viewholder os valores desejados referentes a posição da lista
         public void onBindViewHolder(@NonNull ViewHolder holder, int position)
         {
-            Tarefa tarefaDaPosicao = TarefaControlador.getListaTarefas().get(position);
+            Tarefa tarefaDaPosicao = tarefaControlador.getListaTarefas().get(position);
             //holder.ivRealizado;
             //holder.ivPrioridade;
             holder.tvTitulo.setText(tarefaDaPosicao.getTitulo());

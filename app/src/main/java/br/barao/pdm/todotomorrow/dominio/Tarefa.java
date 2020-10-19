@@ -1,20 +1,61 @@
 package br.barao.pdm.todotomorrow.dominio;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Tarefa
 {
+    @PrimaryKey(autoGenerate = true)
+    private Long codigo;
+
+    @ColumnInfo
     private String titulo;
+
+    @ColumnInfo
     private String descricao;
+
+    @ColumnInfo
     private String data;
+
+    @ColumnInfo
     private String local;
+
+    @ColumnInfo
     private Boolean status_realizado;
+
+    @ColumnInfo
     private String prioridade;
+
+    @ColumnInfo
     private Boolean alertar;
+
+    @ColumnInfo
     private Double latitude_local;
+
+    @ColumnInfo
     private Double longitude_local;
+
+    @ColumnInfo
     private String anexo;
+
+    @Ignore
+    private String atributoQueNaoEColuna;
 
     public Tarefa()
     {
+    }
+
+    public Long getCodigo()
+    {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo)
+    {
+        this.codigo = codigo;
     }
 
     public String getTitulo()

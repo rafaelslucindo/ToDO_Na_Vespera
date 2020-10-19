@@ -53,7 +53,7 @@ public class CriacaoEdicaoTarefasActivity extends AppCompatActivity
 
     private void criaControladores()
     {
-        tarefaControlador = new TarefaControlador();
+        tarefaControlador = new TarefaControlador(context);
     }
 
     private void inicializaComponentes()

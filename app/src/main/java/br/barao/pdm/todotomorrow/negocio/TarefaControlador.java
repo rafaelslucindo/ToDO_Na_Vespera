@@ -1,16 +1,21 @@
 package br.barao.pdm.todotomorrow.negocio;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import br.barao.pdm.todotomorrow.dao.TarefaDao;
+import br.barao.pdm.todotomorrow.database.MyDatabase;
 import br.barao.pdm.todotomorrow.dominio.Tarefa;
 
 public class TarefaControlador
 {
-    private static final List<Tarefa> listaTarefas = new ArrayList<>();
+    private TarefaDao tarefaDao;
 
-    public TarefaControlador()
+    public TarefaControlador(Context context)
     {
+        tarefaDao = MyDatabase.getInstance(context).getTarefaDao();
     }
 
     public boolean adicionaTarefa(String titulo, String descricao, String data, String local, Boolean status_realizado,
@@ -26,17 +31,22 @@ public class TarefaControlador
         novaTarefa.setAlertar(alertar);
         novaTarefa.setLatitude_local(latitude);
         novaTarefa.setLongitude_local(longite);
-        listaTarefas.add(novaTarefa);
+        tarefaDao.insert(novaTarefa);
         return true;
     }
 
-    public static List<Tarefa> getListaTarefas()
+    public List<Tarefa> getListaTarefas()
     {
-        return listaTarefas;
+        return tarefaDao.selectTodosRegistros();
     }
 
-    public static void removeItemLista(Tarefa tarefaRemocao)
+    public void removeItemLista(Tarefa tarefaRemocao)
     {
-        listaTarefas.remove(tarefaRemocao);
+        tarefaDao.delete(tarefaRemocao);
+    }
+
+    public int contaRegistros()
+    {
+        return tarefaDao.contaRegistros();
     }
 }
